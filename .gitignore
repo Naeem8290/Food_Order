@@ -1,0 +1,5 @@
+backend/node_modules
+learn/node_modules
+
+
+backend/.env

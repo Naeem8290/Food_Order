@@ -1,0 +1,117 @@
+
+
+#regheading{
+  text-align: center;
+  margin-top: 80px;
+  color: gray;
+  font-size: large;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+#navbar{
+  background: linear-gradient(to right, rgb(9, 207, 207), rgb(138, 138, 204) , lavender);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+
+#adminbutton{
+  color: black;
+  padding-top: 10px;
+  text-align: center;
+}
+
+
+#myimg{
+  width: 125px;
+  height: 125px;
+  border-radius: 10px;
+  box-shadow: 2px 3px 4px gray;
+}
+
+#foodlist{
+  font-size: small;
+
+}
+
+#editImage{
+  width: 90px;
+  box-shadow: 2px 3px 4px gray;
+}
+
+#editImage:hover{
+  width: 100px;
+  border: 3px solid goldenrod;
+}
+
+
+
+#Pdesc{
+  text-align: justify;
+}
+
+#search {
+  border: 3px solid gray;
+}
+
+
+
+
+
+
+
+
+
+/* Ensure the html and body take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Main container for the page */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100px; /* Ensures the footer is at the bottom */
+}
+
+/* Content area */
+.content {
+  flex: 1; /* This allows the content area to grow and fill the space */
+  padding: 20px; /* Optional: Add some padding to the content */
+}
+
+/* Footer styles */
+.footer {
+  background-color: rgba(0, 0, 0, 0.05);
+  /* Add any additional styles you want for the footer */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Cartpage */
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  }
+
+  /* ------------------------------------------ */
+
