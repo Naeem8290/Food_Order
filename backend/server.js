@@ -27,11 +27,8 @@ mongoose.connect(process.env.URI).then(()=>{
 
 
 
-
-
-
-
-
+const serverless = require("serverless-http");
+module.exports.handler = serverless(app);
 
 
 app.use(express.static("public"))
