@@ -81,7 +81,7 @@ const FoodProducts = () => {
 
     
     return (
-        <div>
+        <div style={{minHeight:'64vh'}}>
            <MDBContainer>
              <input id="search"
         type="search"
