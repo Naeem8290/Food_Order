@@ -21,14 +21,21 @@ mongoose.connect(process.env.URI).then(()=>{
         // console.log("server is running on port 8000")
     })
 
+    
+
 }).catch((error)=>{
     console.log("connection failed" , error)
 })
 
-
+//-----------------------------------------------------------Vercel------------
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error(err));
 
 const serverless = require("serverless-http");
 module.exports.handler = serverless(app);
+//---------------------Vercel-----------------------------------------------------
 
 
 app.use(express.static("public"))

@@ -86,7 +86,7 @@ const Cartpage = () => {
 
 
   return (
-    <div>
+    <div style={{minHeight:'67vh'}}>
       <section className="h-100 gradient-custom" style={{ paddingBottom: '25px' }}>
         <div className="container py-5">
           <div className="row d-flex justify-content-center my-4">
