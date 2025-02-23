@@ -28,13 +28,13 @@ mongoose.connect(process.env.URI).then(()=>{
 })
 
 //-----------------------------------------------------------Vercel------------
-mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error(err));
+// mongoose
+//   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => console.log("MongoDB connected"))
+//   .catch((err) => console.error(err));
 
-const serverless = require("serverless-http");
-module.exports.handler = serverless(app);
+// const serverless = require("serverless-http");
+// module.exports.handler = serverless(app);
 //---------------------Vercel-----------------------------------------------------
 
 
