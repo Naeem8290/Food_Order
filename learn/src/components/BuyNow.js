@@ -1,8 +1,9 @@
 import React from 'react'
 
 const BuyNow = () => {
+
   return (
-    <div class="mt-5" style={{height:'55vh'}}>
+    <div class="mt-5" style={{height:'60.5vh'}}>
         <div class="container d-flex justify-content-center align-items-center">
   <div class="row">
     <div class="col-10">

@@ -8,11 +8,12 @@ const Reg = () => {
     const [username, setUsername] = useState('');
     const [password  , setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [address , setAddress] = useState('')
     const [message , setMessage] = useState('')
 
     function handlereg(e){
         e.preventDefault()
-        const formdata = {username , password , email}
+        const formdata = {username , password , email , address}
         console.log(formdata)
 
         fetch("/api/Register", {
@@ -38,10 +39,10 @@ const Reg = () => {
         }
 
   return (
-    <div className='container' style={{height:'64vh'}}>
-    <div className='row'>
-        <div className='col-md-7'></div>
-        <div className='col-md-5'>
+    <div className='container-fluid ' style={{height:'69vh'}}>
+    <div className='row '>
+        <div className='col-md-4'></div>
+        <div className='col-md-4'>
            
             <form onSubmit={(e)=>{handlereg(e)}}>
               
@@ -50,8 +51,10 @@ const Reg = () => {
                 <MDBInput value={username} onChange={(e) => setUsername(e.target.value)} label='Username' id='controlledValue' type='text' className='mt-3'  required/>
                 <MDBInput value={password} onChange={(e) => setPassword(e.target.value)} label='Password' id='controlledValue' type='password' className='mt-3'  required />
                 <MDBInput value={email} onChange={(e) => setEmail(e.target.value)} label='Email' id='controlledValue' type='email'  className='mt-3'  required />
-                <button className='form-control mt-2 btn btn-primary'>Register</button>
-               <Link to="/Login"><button className='form-control mt-2 btn btn-dark'>Login</button></Link> 
+                <MDBInput value={address} onChange={(e) => setAddress(e.target.value)} label='Address' id='controlledValue' type='text'  className='mt-3'  required />
+
+                <button className='form-control mt-3 btn btn-primary'>Register</button>
+               <Link to="/Login"><button className='form-control mt-3 btn btn-dark'>Login</button></Link> 
     
     
             </form>

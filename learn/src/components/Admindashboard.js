@@ -38,8 +38,8 @@ const Admindashboard = () => {
   }
 
   return (
-    <div className='container-fluid'>
-    <div className='row'>
+    <div className='container-fluid' style={{minHeight:'80vh'}} >
+    <div className='row' style={{marginTop:'20px'}}>
       <div className='col-md-2' id="sidebar">
         <Link to="/AdminInsertForm"><h6 id="adminbutton">Admin Add Form</h6></Link>
       </div>

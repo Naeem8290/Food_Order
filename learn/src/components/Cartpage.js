@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { contextapi } from '../Contextapi'
+import { Link } from 'react-router-dom'
 
 const Cartpage = () => {
   const [message, setMessage] = useState("")
@@ -86,7 +87,7 @@ const Cartpage = () => {
 
   return (
     <div>
-      <section className="h-100 gradient-custom" style={{paddingBottom:'25px'}}>
+      <section className="h-100 gradient-custom" style={{ paddingBottom: '25px' }}>
         <div className="container py-5">
           <div className="row d-flex justify-content-center my-4">
             <div className="col-md-8">
@@ -116,7 +117,7 @@ const Cartpage = () => {
                         <button type="button" onClick={() => handleDelete(item._id)} data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-sm me-1 mb-2" data-mdb-tooltip-init title="Remove item">
                           <i className="fas fa-trash" />
                         </button>
-                       
+
 
                       </div>
                       <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
@@ -167,9 +168,7 @@ const Cartpage = () => {
                       <span><strong>Rs {calculateTotalAmount()}</strong></span>
                     </li>
                   </ul>
-                  <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg btn-block">
-                    <a href="/completed" className='text-white'>Buy Now</a>
-                  </button>
+                  <Link to="/completed">  <button className='form-control mt-3 btn btn-primary'>Buy Now</button></Link>
                 </div>
               </div>
             </div>

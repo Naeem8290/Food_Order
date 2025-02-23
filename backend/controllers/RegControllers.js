@@ -2,25 +2,25 @@ const Reg = require("../models/Register")
 const bcrypt = require('bcrypt')
 
 exports.RegistrationUser = async(req ,res)=>{
-    const { username, password, email} = req.body
+    const { username, password, email , address} = req.body
     const checkpass = await bcrypt.hash(password  , 10)
     const usercheck = await Reg.findOne({Username : username})
     console.log(usercheck)
     try{
         if(usercheck == null){
-        const record =  new Reg({ Username: username, Password: checkpass, Email: email })
+        const record =  new Reg({ Username: username, Password: checkpass, Email: email, Address:address })
         console.log(record)
         record.save()
         res.json({
             status : 201 , 
             apiData : record , 
-            message : "successfully Registered"
+            message : `${username} Successfully Registered , Please login now...`
             
         })
     }else{
         res.json({
             status : 401 , 
-            message : "username is already taken"
+            message : "User is already exists"
         })
     }
         

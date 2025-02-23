@@ -26,12 +26,11 @@ const App = () => {
 
   const [loginname, setLoginName] = useState(localStorage.getItem("loginname"));
   const [cart, setCart] = useState(getCart());
-
   
   return (
     <div>
       <BrowserRouter>
-      <contextapi.Provider value={{loginname, setLoginName , cart , setCart}} >
+      <contextapi.Provider value={{loginname, setLoginName , cart , setCart }} >
         <Navbar/>
       <Routes>
         <Route path='/' element={<FoodProducts/>}/>

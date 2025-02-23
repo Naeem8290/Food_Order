@@ -104,7 +104,7 @@ const Admineditform = () => {
 
 
   return (
-    <div className='container-fluid' style={{height:'64vh'}}>
+    <div className='container-fluid' style={{height:'69vh' , paddingTop:'10px'}}>
     <div className='row'>
       <div className='col-md-2' id="sidebar"> 
         <Link to="/Dashboard"><h6 id="adminbutton">Dashboard</h6></Link>

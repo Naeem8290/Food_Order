@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react'
-import { MDBInput } from 'mdb-react-ui-kit';
+import { MDBCheckbox, MDBInput } from 'mdb-react-ui-kit';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { contextapi } from '../Contextapi';
 
 const Login = () => {
+
+  const [checked, setChecked] = useState(false);
+
 
 
   const {  setLoginName } = useContext(contextapi)
@@ -43,21 +46,22 @@ const Login = () => {
           })
     }
   return (
-    <div id="loginpage" style={{height:'64vh'}}>
+    <div id="loginpage" style={{height:'69vh'}}>
     <div className='container-fluid' >
     <div className='row'>
-        <div className='col-md-7'></div>
-        <div className='col-md-5'>
+        <div className='col-md-4'></div>
+        <div className='col-md-4'>
            
             <form onSubmit={(e)=>{handleLogin(e)}}>
             <h3 id="regheading" >Login Please</h3>
                 <MDBInput value={username} onChange={(e) => setUsername(e.target.value)} label='Username' id='controlledValue' type='text' className='mt-3'  required />
                 <MDBInput value={password} onChange={(e) => setPassword(e.target.value)} label='Password' id='controlledValue' type='password' className='mt-3'  required />
-               
-                <button className='form-control mt-2 btn btn-success'>Login</button>
-              <Link to="/reg">  <button className='form-control mt-2 btn btn-primary'>Register</button></Link>
-    
-    
+                  <div className='mt-3'>
+                  <MDBCheckbox id='controlledCheckbox' label='Keep me logged in' checked={checked} onChange={() => setChecked(!checked)} />
+                  </div>
+
+                <button className='form-control mt-3 btn btn-dark'>Login</button>
+              <Link to="/reg">  <button className='form-control mt-3 btn btn-primary'>Register</button></Link>
             </form>
         </div>
     </div>

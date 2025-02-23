@@ -78,6 +78,8 @@ const FoodProducts = () => {
     
 
     //----------------------------------------------------------------
+
+    
     return (
         <div>
            <MDBContainer>
@@ -92,19 +94,19 @@ const FoodProducts = () => {
       />
       </MDBContainer>
             <MDBContainer>
-                <MDBRow>
+                <MDBRow >
                     {product
                      .filter((el) => el.PName.toLowerCase().includes(inputtext))
                     .map((product , key)=>(
-                                    <MDBCol size='md-4'>
-                                    <MDBCard className='mb-4'>
+                                    <MDBCol size='md-4' >
+                                    <MDBCard className='mb-4'  id='product'>
                                         <MDBCardImage src={`upload/${product.PImg}`} style={{ height: "20rem" }}  position='top' alt='...' />
                                         <MDBCardBody>
                                             <MDBCardTitle>{product.PName}</MDBCardTitle>
                                             <MDBCardText>{product.PDesc}
                                             <MDBCardTitle>Rs {product.PPrice}</MDBCardTitle>
                                                 </MDBCardText>
-                                            <MDBBtn href='#' onClick={(e) => handlecart(e, product._id)}>Add To Cart</MDBBtn>
+                                            <MDBBtn id='add' href='#' onClick={(e) => handlecart(e, product._id)}>Add To Cart</MDBBtn>
                                         </MDBCardBody>
                                     </MDBCard>
                                 </MDBCol>

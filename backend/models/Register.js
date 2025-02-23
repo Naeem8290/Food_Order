@@ -6,7 +6,9 @@ const regSchema = mongoose.Schema({
 
     Password : {type : String} , 
 
-    Email : {type  : String }
+    Email : {type  : String } ,
+
+    Address : {type : String}
 })
 
 module.exports = mongoose.model("Register" , regSchema)
