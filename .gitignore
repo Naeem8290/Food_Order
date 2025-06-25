@@ -1,6 +1,5 @@
 backend/node_modules
 learn/node_modules
 learn/build
-vercel.json
 
 backend/.env

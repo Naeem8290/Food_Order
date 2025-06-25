@@ -1,10 +1,11 @@
-# Food Order
+# FoodToHome
 
 A simple and responsive web application to manage food orders online. Users can browse food items, add them to the cart, and proceed to place an order.
 
 ## Features
 
 - **Registration and Login Verification**: Only authorised user can order the food.
+- **Food Management**: Only admin can manage the food and it's details.
 - **Browse Food Options**: View different food items available for ordering.
 - **Add to Cart**: Add selected food items to the cart.
 - **Cart Management**: View and remove items from the cart.

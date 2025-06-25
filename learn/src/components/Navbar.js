@@ -24,7 +24,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
             <NavLink className="navbar-brand" to="/">
-              <i className="bi bi-amazon"></i>
+              <b> FoodToHome</b>
             </NavLink>
             <button
               className="navbar-toggler"
