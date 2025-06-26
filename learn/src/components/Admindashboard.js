@@ -7,10 +7,14 @@ const Admindashboard = () => {
   const navigate = useNavigate()
 
   const [product, setProduct] = useState([])
-  const [message , setMessage] = useState("")
+  const [message, setMessage] = useState("")
+
+  const BASE_URL = process.env.NODE_ENV === 'production'
+    ? 'https://food-order-hgga.onrender.com'
+    : '';
 
   useEffect(() => {
-    fetch("/api/adminshowdetails").then((res) => { return res.json() }).then((data) => {
+    fetch(`${BASE_URL}/api/adminshowdetails`).then((res) => { return res.json() }).then((data) => {
       console.log(data)
       if (data.status === 200) {
         setProduct(data.apiData)
@@ -21,16 +25,16 @@ const Admindashboard = () => {
   }, [])
 
 
-  function handleremove(e, id){
-    fetch(`/api/admindeleteproduct/${id}`,{
-      method : "DELETE"
-    }).then((res)=>{return res.json()}).then((data)=>{
+  function handleremove(e, id) {
+    fetch(`${BASE_URL}/api/admindeleteproduct/${id}`, {
+      method: "DELETE"
+    }).then((res) => { return res.json() }).then((data) => {
       console.log(data)
-      if(data.status === 200){
+      if (data.status === 200) {
         toast.success(data.message)
         setMessage(data.message)
         navigate('/Dashboard')
-      }else{
+      } else {
         toast.error(data.message)
         setMessage(data.message)
       }
@@ -38,30 +42,30 @@ const Admindashboard = () => {
   }
 
   return (
-    <div className='container-fluid' style={{minHeight:'80vh'}} >
-    <div className='row' style={{marginTop:'20px'}}>
-      <div className='col-md-2' id="sidebar">
-        <Link to="/AdminInsertForm"><h6 id="adminbutton">Admin Add Form</h6></Link>
-      </div>
-      <div className='col-md-10' id="adminbutton">
-        <table className='table table-hover'>
-          <thead>
-            <tr>
-              <th> Product Food Image</th>
-              <th>Food Name</th>
-              <th>Food Description</th>
-              <th>Food Quantity</th>
-              <th>Food Amount</th>
-              <th>Food Status</th>
-              <th>Update Food</th>
-              <th>Delete Food</th>
-           
-            </tr>
-          </thead>
+    <div className='container-fluid' style={{ minHeight: '80vh' }} >
+      <div className='row' style={{ marginTop: '20px' }}>
+        <div className='col-md-2' id="sidebar">
+          <Link to="/AdminInsertForm"><h6 id="adminbutton">Admin Add Form</h6></Link>
+        </div>
+        <div className='col-md-10' id="adminbutton">
+          <table className='table table-hover'>
+            <thead>
+              <tr>
+                <th> Product Food Image</th>
+                <th>Food Name</th>
+                <th>Food Description</th>
+                <th>Food Quantity</th>
+                <th>Food Amount</th>
+                <th>Food Status</th>
+                <th>Update Food</th>
+                <th>Delete Food</th>
+
+              </tr>
+            </thead>
 
 
 
-           <tbody>
+            <tbody>
               {
                 product.map((item, key) => (
 
@@ -72,23 +76,23 @@ const Admindashboard = () => {
                     <td>{item.PQty}</td>
                     <td>{item.PPrice}</td>
                     <td>{item.PStatus}</td>
-                        <td><Link to={ `/adminproductupdate/${item._id}`}><button  className='btn btn-primary' ><i class="bi bi-pencil-fill"></i></button></Link></td>
-                        <td><Link to={`/adminproductremove/${item._id}`}><button className='btn btn-danger' onClick={(e)=>{handleremove(e,item._id)}}><i class="bi bi-trash3-fill"></i></button></Link></td>
-              
+                    <td><Link to={`/adminproductupdate/${item._id}`}><button className='btn btn-primary' ><i class="bi bi-pencil-fill"></i></button></Link></td>
+                    <td><Link to={`/adminproductremove/${item._id}`}><button className='btn btn-danger' onClick={(e) => { handleremove(e, item._id) }}><i class="bi bi-trash3-fill"></i></button></Link></td>
+
                   </tr>
                 ))
               }
 
 
 
-            </tbody> 
+            </tbody>
 
 
-         
-        </table>
+
+          </table>
+        </div>
       </div>
     </div>
-  </div>
   )
 }
 

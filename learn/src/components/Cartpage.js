@@ -8,6 +8,10 @@ const Cartpage = () => {
 
   const { cart, setCart, totalitems, PPrice, } = useContext(contextapi)
 
+  const BASE_URL = process.env.NODE_ENV === 'production'
+    ? 'https://food-order-hgga.onrender.com'
+    : '';
+
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart'));
     if (savedCart) {
@@ -17,7 +21,7 @@ const Cartpage = () => {
 
   useEffect(() => {
     if (cart && cart.items) {
-      fetch("/api/cart", {
+      fetch(`${BASE_URL}/api/cart`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ids: Object.keys(cart.items) }),
@@ -86,7 +90,7 @@ const Cartpage = () => {
 
 
   return (
-    <div style={{minHeight:'67vh'}}>
+    <div style={{ minHeight: '67vh' }}>
       <section className="h-100 gradient-custom" style={{ paddingBottom: '25px' }}>
         <div className="container py-5">
           <div className="row d-flex justify-content-center my-4">
