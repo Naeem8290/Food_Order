@@ -1,10 +1,6 @@
 const express = require("express")
 
-
-
-
 const app =  express()
-
 
 app.use(express.json())
 
@@ -15,11 +11,14 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 dotenv.config()
 
+const PORT = process.env.PORT || 5001;
+
+
 mongoose.connect(process.env.MONGO_URI).then(()=>{
     console.log("connected successfully")
-    app.listen(process.env.PORT ||8000 , ()=>{
-        // console.log("server is running on port 8000")
-    })
+    // app.listen(process.env.PORT ||8000 , ()=>{
+    //     console.log("server is running on port 8000")
+    // })
 
     
 
@@ -40,6 +39,6 @@ mongoose.connect(process.env.MONGO_URI).then(()=>{
 
 app.use(express.static("public"))
 app.use("/api" , frontendRoutes)
-app.listen(5001 , ()=>{
+app.listen( PORT , ()=>{
     console.log("server is running on port 5000")
 })
