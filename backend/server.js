@@ -1,8 +1,12 @@
 const express = require("express")
+const cors = require("cors")
 
 const app =  express()
 
 app.use(express.json())
+
+app.use(cors()); // 👈 opens up all origins (not safe for production)
+
 
 const frontendRoutes = require("./frontendRoute/frontendRoutes")
 
