@@ -1,27 +1,68 @@
 const Food = require("../models/Food")
 
 
-exports.foodInsertform = (req ,res)=>{
-    const { pname, pdesc, pqty, pstatus, pamount } = req.body
+// exports.foodInsertform = (req ,res)=>{
+//     const { pname, pdesc, pqty, pstatus, pamount } = req.body
  
-    const filename = req.file.filename
+//     const filename = req.file.filename
+//     try {
+//         const record = new Food({ PName: pname, PPrice: pamount, PDesc: pdesc, PQty: pqty, PStatus: pstatus, PImg: filename })
+//         record.save()
+
+//         res.json({
+//             status: 201,
+//             apiData: record,
+//             message: "your Product is successfully inserted"
+
+//         })
+//     } catch (error) {
+//         res.json({
+//             status: 400,
+//             message: error.message
+//         })
+//     }
+// }
+
+exports.foodInsertform = async (req, res) => {
+    const { pname, pdesc, pqty, pstatus, pamount } = req.body;
+
+    // ✅ Check if image uploaded
+    if (!req.file) {
+        return res.status(400).json({
+            status: 400,
+            message: "Image upload failed. No file received.",
+        });
+    }
+
+    const imageUrl = req.file.path; // This is Cloudinary image URL
+
     try {
-        const record = new Food({ PName: pname, PPrice: pamount, PDesc: pdesc, PQty: pqty, PStatus: pstatus, PImg: filename })
-        record.save()
+        const record = new Food({
+            PName: pname,
+            PPrice: pamount,
+            PDesc: pdesc,
+            PQty: pqty,
+            PStatus: pstatus,
+            PImg: imageUrl,
+        });
+
+        await record.save();
 
         res.json({
             status: 201,
             apiData: record,
-            message: "your Product is successfully inserted"
-
-        })
+            message: "Product inserted successfully",
+        });
     } catch (error) {
-        res.json({
-            status: 400,
-            message: error.message
-        })
+        console.error("❌ Error saving product:", error);
+        res.status(500).json({
+            status: 500,
+            message: error.message,
+        });
     }
-}
+};
+
+
 
 exports.showFoodproducts = async(req , res)=>{
     try{

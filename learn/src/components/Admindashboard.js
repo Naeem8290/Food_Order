@@ -70,7 +70,7 @@ const Admindashboard = () => {
                 product.map((item, key) => (
 
                   <tr className='foodlist'>
-                    <td><img src={`upload/${item.PImg}`} alt='img' id="myimg" /></td>
+                    <td><img src={item.PImg} alt={item.PName} id="myimg" /></td>
                     <td>{item.PName}</td>
                     <td id="Pdesc">{item.PDesc}</td>
                     <td>{item.PQty}</td>

@@ -104,7 +104,7 @@ const FoodProducts = () => {
             .map((product, key) => (
               <MDBCol size='md-4' >
                 <MDBCard className='mb-4' id='product'>
-                  <MDBCardImage src={`upload/${product.PImg}`} style={{ height: "20rem" }} position='top' alt='...' />
+                  <MDBCardImage src={product.PImg} style={{ height: "20rem" }} position='top' alt='...' />
                   <MDBCardBody>
                     <MDBCardTitle>{product.PName}</MDBCardTitle>
                     <MDBCardText>{product.PDesc}

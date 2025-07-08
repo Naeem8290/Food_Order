@@ -135,7 +135,7 @@ const Admineditform = () => {
               <input type="file" className='form-control' onChange={(e) => { setPImg(e.target.files[0]) }} required />
             </div> : (
               <div>
-                <img src={`http://localhost:5000/upload/${pimg}`} id="editImage" className='me-4 mt-2' />
+                <img src={pimg} id="editImage" className='me-4 mt-2' />
                 <i onClick={() => { setEditImage(true) }}> Edit Image</i>
               </div>
             )}

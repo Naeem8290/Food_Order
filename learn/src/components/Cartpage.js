@@ -106,7 +106,7 @@ const Cartpage = () => {
                       <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
 
                         <div className="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                          <img src={`upload/${item.PImg}`} className="w-100" alt="Blue Jeans Jacket" />
+                          <img src={item.PImg} className="w-100" alt="Blue Jeans Jacket" />
                           <a href="#!">
                             <div className="mask" style={{ backgroundColor: 'rgba(251, 251, 251, 0.2)' }} />
                           </a>
